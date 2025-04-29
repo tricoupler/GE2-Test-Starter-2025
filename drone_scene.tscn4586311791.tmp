@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1mt883kcp3i"]
+[gd_scene load_steps=13 format=3 uid="uid://b1mt883kcp3i"]
 
 [ext_resource type="Script" uid="uid://1o41x48csitm" path="res://camera.gd" id="1_jgr37"]
 [ext_resource type="PackedScene" uid="uid://dvynn2ohn7l3n" path="res://drone.tscn" id="1_qhlfa"]
 [ext_resource type="Script" uid="uid://d2lod3ooh6pud" path="res://drone.gd" id="3_qrxkg"]
 [ext_resource type="Script" uid="uid://di8i0sa6dgrhc" path="res://props.gd" id="4_hc3en"]
 [ext_resource type="PackedScene" uid="uid://bt13gqei0ot1m" path="res://drone_prop.tscn" id="4_nb8mf"]
-[ext_resource type="PackedScene" uid="uid://bwokrn0k5rpaf" path="res://Smiley face.tscn" id="6_h8uh2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jgr37"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -49,22 +48,17 @@ mesh = SubResource("PlaneMesh_qhlfa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
 shape = SubResource("WorldBoundaryShape3D_jgr37")
 
-[node name="Marker3D" type="Marker3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91398, 1.33763)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.976635, 0.214906, 0, -0.214906, 0.976635, -0.0107384, 3.0748, 3.2717)
 script = ExtResource("1_jgr37")
-target = NodePath("../RigidBody3D")
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 0.976635, 0.214906, 0, -0.214906, 0.976635, -0.0107384, 1.99071, 4.49498)
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88452, 1.0791)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("drone_propeller1", "drone_propeller2", "drone_propeller3", "drone_propeller4")]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7109, -1.05607)
 mass = 10.0
 script = ExtResource("3_qrxkg")
-drone_propeller1 = NodePath("Drone/Props/DroneProp")
-drone_propeller2 = NodePath("Drone/Props/DroneProp2")
-drone_propeller3 = NodePath("Drone/Props/DroneProp3")
-drone_propeller4 = NodePath("Drone/Props/DroneProp4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0336914, -0.0154877, 0.0450134)
@@ -86,18 +80,3 @@ transform = Transform3D(0.344641, 0, 0, 0, 1, 0, 0, 0, 0.290083, 0.432557, 0.076
 
 [node name="DroneProp4" parent="RigidBody3D/Drone/Props" instance=ExtResource("4_nb8mf")]
 transform = Transform3D(0.344641, 0, 0, 0, 1, 0, 0, 0, 0.290083, -0.445333, 0.0762147, -0.680901)
-
-[node name="Smiley" parent="." instance=ExtResource("6_h8uh2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1357, 3.96772, -33.6547)
-
-[node name="Smiley2" parent="." instance=ExtResource("6_h8uh2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1357, 3.96772, 31.1514)
-
-[node name="Smiley3" parent="." instance=ExtResource("6_h8uh2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5383, 3.96772, 31.1514)
-
-[node name="Smiley4" parent="." instance=ExtResource("6_h8uh2")]
-transform = Transform3D(0.527015, 0, -0.849856, 0, 1, 0, 0.849856, 0, 0.527015, -23.3731, 3.96772, 5.25097)
-
-[node name="Smiley5" parent="." instance=ExtResource("6_h8uh2")]
-transform = Transform3D(-0.28975, 0, -0.957102, 0, 1, 0, 0.957102, 0, -0.28975, 38.5383, 3.96772, -2.05552)
