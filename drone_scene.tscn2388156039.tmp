@@ -64,7 +64,9 @@ script = ExtResource("3_qrxkg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0336914, -0.0154877, 0.0450134)
 shape = SubResource("BoxShape3D_jgr37")
 
-[node name="Drone" parent="RigidBody3D" instance=ExtResource("1_qhlfa")]
+[node name="Drone" parent="RigidBody3D" node_paths=PackedStringArray("drone_propellers") instance=ExtResource("1_qhlfa")]
+script = ExtResource("3_qrxkg")
+drone_propellers = NodePath("Props")
 
 [node name="Props" type="Node3D" parent="RigidBody3D/Drone"]
 script = ExtResource("4_hc3en")
