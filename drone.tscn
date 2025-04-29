@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvynn2ohn7l3n"]
+
+[ext_resource type="PackedScene" uid="uid://pj2xwbca7ftk" path="res://drone_arm.tscn" id="1_uvgqj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_etgmo"]
+
+[node name="Drone" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.57117, 0, 0, 0, 0.125672, 0, 0, 0, 0.999999, 0, 0, 0)
+mesh = SubResource("BoxMesh_etgmo")
+
+[node name="DroneArm" parent="MeshInstance3D" instance=ExtResource("1_uvgqj")]
+transform = Transform3D(1.75079, 0, 0, 0, 7.95724, 0, 0, 0, 1, 1.17166, 0, 0.440998)
+
+[node name="DroneArm2" parent="MeshInstance3D" instance=ExtResource("1_uvgqj")]
+transform = Transform3D(1.75079, 0, 0, 0, 7.95724, 0, 0, 0, 1, 1.22819, 0, -0.397351)
+
+[node name="DroneArm3" parent="MeshInstance3D" instance=ExtResource("1_uvgqj")]
+transform = Transform3D(-1.75079, 0, 8.74229e-08, 0, 7.95724, 0, -1.53059e-07, 0, -1, -1.31318, -4.74288e-07, 0.446003)
+
+[node name="DroneArm4" parent="MeshInstance3D" instance=ExtResource("1_uvgqj")]
+transform = Transform3D(-1.75079, 0, 8.74229e-08, 0, 7.95724, 0, -1.53059e-07, 0, -1, -1.31318, -4.74288e-07, -0.41682)
